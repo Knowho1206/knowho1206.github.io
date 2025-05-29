@@ -1,13 +1,11 @@
 import os
 from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
 from PIL import Image
 from io import BytesIO
 from google import genai
 from google.genai import types
 
 app = Flask(__name__)
-CORS(app)
 
 API_KEY = "AIzaSyDWESm9jdBQhY1_GY9FiTYBuLz7MfL1wio"
 client = genai.Client(api_key=API_KEY)
@@ -68,7 +66,7 @@ def enhance():
                 f.write(buf.read())
             return jsonify({
                 'success': True,
-                'result_url': f'https://knowho1206/github.io/static/{result_filename}',
+                'result_url': f'static/{result_filename}',
                 'message': enhanced_text or '이미지 변환 완료'
             })
         else:
