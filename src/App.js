@@ -1,4 +1,4 @@
-import React, { use, useState, useRef } from 'react'
+import React, { use, useState, useRef, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
@@ -11,21 +11,68 @@ import Form from 'react-bootstrap/Form';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { FaCalendar } from "react-icons/fa";
+import { IoPersonSharp, IoCall } from "react-icons/io5";
+import { FaUserGroup, FaTrophy } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a
+    href="d-inline mx-2bg-body-tertiary mb-3"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+    className="nav-link"
+    style={{ cursor: "pointer" }}
+  >
+    {children}
+    &#x25bc;
+  </a>
+));
 
 function App() {
-  let [title, setTitle] = useState(['파이썬 번역기', '웹페이지 크롤링', 'MBTI 챗봇', '해리포터 기숙사 배정 프로그램', 'AI 예측 프로그램']);
   let [thumbUp, setThumbUp] = useState(0);
   let [search, setSearch] = useState("");
-  const filteredTitle = title.filter(item => item.toLowerCase().includes(search.toLowerCase()));
+  const introRef = useRef(null);
   const transRef = useRef(null);
-  const contactRef = useRef(null);
-  
+  const [isTop, setIsTop] = useState(true);
+
+  const CustomMenu = React.forwardRef(
+  ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
+    const [value, setValue] = useState('');
+    return (
+      <div
+        ref={ref}
+        style={style}
+        className={className}
+        aria-labelledby={labeledBy}
+      >
+        <Form.Control
+          autoFocus
+          className="mx-3 my-2 w-auto"
+          placeholder="프로젝트명 검색..."
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+        />
+        <ul className="list-unstyled mb-0">
+          {React.Children.toArray(children).filter(
+            (child) =>
+              !value || child.props.children.toLowerCase().startsWith(value),
+          )}
+        </ul>
+      </div>
+      );
+    },
+  );
   return (
-     <>
-      {['sm'].map((expand) => (
+     <div className='App'>
+      {['lg'].map((expand) => (
         <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Knowho's Portpolio</Navbar.Brand>
+            <Navbar.Brand>Knowho's Portpolio</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -39,64 +86,59 @@ function App() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action2">자기소개</Nav.Link>
-                  <NavDropdown
-                    title="프로젝트"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link >자기소개</Nav.Link>
+                    <Dropdown>
+                      <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" variant='secondary'>
+                        프로젝트명 검색
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu as={CustomMenu}>
+                        <Dropdown.Item eventKey="1">Red</Dropdown.Item>
+                        <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
+                        <Dropdown.Item eventKey="3">Orange</Dropdown.Item>
+                        <Dropdown.Item eventKey="4">Red-Orange</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  <Nav.Link>미래 계획</Nav.Link>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
         ))}
-        <Image src={background} fluid/>
-        <div
-        style={{
-          position: 'absolute',
-          top: 72, left: 0, right: 0, bottom: 49,
-          background: 'rgba(0, 0, 0, 0.71)',
-          pointerEvents: 'none'
-        }}
-      />
-      <List topic={title[0]} func={() => setThumbUp(thumbUp + 1) } thumb={thumbUp}/>
-      <List topic={title[1]} func={() => setThumbUp(thumbUp + 1) } thumb={thumbUp}/>
-      <List topic={title[2]} func={() => setThumbUp(thumbUp + 1) } thumb={thumbUp}/>
-      <List topic={title[3]} func={() => setThumbUp(thumbUp + 1) } thumb={thumbUp}/>
-      <div style={{ height: '500px' }}></div>
-      <div ref={transRef}>여기로 이동합니다</div>
-      <List topic={title[4]} func={() => setThumbUp(thumbUp + 1) } thumb={thumbUp}/>
-
-    </>
-
-  );
-}
-
-function List({topic, func, thumb}){
-  return (
-    <div className="list">
-        <h3> { topic } <Button variant='light' onClick={func}>👍</Button>{ thumb }</h3>
-        <p>2월 17일 발행</p>
-        <hr/>
-      </div>
+        <div style={{ position: 'relative', width: '100vw', height: '62vh'}}>
+          <Image src={background} fluid className='background'/>
+          <div
+          style={{
+            position: 'absolute',
+            top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(34, 40, 49, 0.71)',
+            pointerEvents: 'none'
+          }}>
+        </div>
+        <h1 className='overlay-text'>-강노율-<br/>인공지능 개발자 지망생 포트폴리오</h1>
+        <br/><br/><br/>
+        <h1 className='intro' ref={introRef}>About Me</h1>
+        <table className='intro-info'>
+          <tr>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><IoPersonSharp/> 이름</td>
+            <td>강노율</td>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaCalendar/> 생년월일</td>
+            <td>09.12.06</td>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaUserGroup /> 소속</td>
+            <td>신성고등학교 프론</td>
+          </tr>
+          <tr>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><IoCall/> 연락처</td>
+            <td>010-8100-0004</td>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><MdEmail/> 이메일</td>
+            <td>yuntanx495@gmail.com</td>
+            <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaTrophy/> 입상</td>
+            <td>2023학년도 정보올림피아드 장려상</td>
+          </tr>
+          
+        </table>
+        </div>
+    </div>
   );
 }
 
