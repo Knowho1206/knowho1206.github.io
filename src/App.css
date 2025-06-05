@@ -16,18 +16,37 @@ body {
   border-spacing: 16px;
   overflow: visible;
   width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 2fr);
+  gap: 16px;
 }
 
-.intro-info, .intro-info th, .intro-info td {
+.intro-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
   border: none;
   margin-left: auto;
   margin-right: auto;
-  padding: 12px 24px;
-  min-width: 175px;
+  padding: 16px 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.label {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.value { margin-top: 4px; }
+
+@media (max-width: 600px) {
+  .intro {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .justify-content-end flex-grow-1 pe-3 {
@@ -47,7 +66,7 @@ body {
 .overlay-text {
   line-height: 1.6;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -62,7 +81,7 @@ body {
   color: #F79B72;
   position: absolute;
   opacity: 100%;
-  top: 45%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -86,18 +105,18 @@ body {
 
 .projects {
   background-color: #DDDDDD;
-  margin-top: 18%;
-  display: block;
-  object-fit: cover;
-}
-
-.projects-table {
-  border-spacing: 12px 24px;
-  border-collapse: separate;
   margin-left: auto;
   margin-right: auto;
 }
 
+.projects-table {
+  border-spacing: 50px 25px;
+  border-collapse: separate;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+}
 
 .App-logo {
   height: 40vmin;

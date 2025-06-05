@@ -12,21 +12,21 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { FaCalendar } from "react-icons/fa";
-import { IoPersonSharp, IoCall } from "react-icons/io5";
-import { FaUserGroup, FaTrophy } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+import { FaCalendar } from 'react-icons/fa';
+import { IoPersonSharp, IoCall } from 'react-icons/io5';
+import { FaUserGroup, FaTrophy } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
-    href="d-inline mx-2bg-body-tertiary mb-3"
+    href='d-inline mx-2bg-body-tertiary mb-3'
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
     }}
-    className="nav-link"
-    style={{ cursor: "pointer" }}
+    className='nav-link'
+    style={{ cursor: 'pointer' }}
   >
     {children}
     &#x25bc;
@@ -35,7 +35,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 
 function App() {
   let [thumbUp, setThumbUp] = useState(0);
-  let [search, setSearch] = useState("");
+  let [search, setSearch] = useState('');
   const introRef = useRef(null);
   const transRef = useRef(null);
   const [isTop, setIsTop] = useState(true);
@@ -52,12 +52,12 @@ function App() {
       >
         <Form.Control
           autoFocus
-          className="mx-3 my-2 w-auto"
-          placeholder="프로젝트명 검색..."
+          className='mx-3 my-2 w-auto'
+          placeholder='프로젝트명 검색...'
           onChange={(e) => setValue(e.target.value)}
           value={value}
         />
-        <ul className="list-unstyled mb-0">
+        <ul className='list-unstyled mb-0'>
           {React.Children.toArray(children).filter(
             (child) =>
               !value || child.props.children.toLowerCase().startsWith(value),
@@ -70,14 +70,14 @@ function App() {
   return (
      <div className='App'>
       {['lg'].map((expand) => (
-        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3 fixed-top">
+        <Navbar key={expand} expand={expand} className='bg-body-tertiary mb-3 fixed-top'>
           <Container fluid>
             <Navbar.Brand>Knowho's Portpolio</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
+              placement='end'
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
@@ -85,17 +85,17 @@ function App() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link onClick={() => {if (introRef.current) {introRef.current.scrollIntoView({ behavior: "smooth" })} }}>자기소개</Nav.Link>
+                <Nav className='justify-content-end flex-grow-1 pe-3'>
+                  <Nav.Link onClick={() => {if (introRef.current) {introRef.current.scrollIntoView({ behavior: 'smooth' })} }}>자기소개</Nav.Link>
                     <Dropdown>
-                      <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" variant='secondary'>
+                      <Dropdown.Toggle as={CustomToggle} id='dropdown-custom-components' variant='secondary'>
                         프로젝트
                       </Dropdown.Toggle>
                       <Dropdown.Menu as={CustomMenu}>
-                        <Dropdown.Item eventKey="1">파이썬 웹사이트 크롤링</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Orange</Dropdown.Item>
-                        <Dropdown.Item eventKey="4">Red-Orange</Dropdown.Item>
+                        <Dropdown eventKey='1'>파이썬 웹사이트 크롤링</Dropdown>
+                        <Dropdown eventKey='2'>Blue</Dropdown>
+                        <Dropdown eventKey='3'>Orange</Dropdown>
+                        <Dropdown eventKey='4'>Red-Orange</Dropdown>
                       </Dropdown.Menu>
                     </Dropdown>
                   <Nav.Link>학습 현황</Nav.Link>
@@ -121,35 +121,22 @@ function App() {
             objectFit: 'contain'
           }}>
           </div>
-          <h1 className='overlay-text'>-강노율-<br/>개발자 지망생 포트폴리오</h1>
+          <h1 className='overlay-text'>- 강노율 -<br/>개발자 지망생 포트폴리오</h1>
           <hr className='overlay-divider'/>
-          <br/><br/><br/>
-          <h1 ref={introRef}>About Me</h1>
-          <div className='intro'>
-            <table className='intro-info'>
-              <tbody>
-                <tr>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><IoPersonSharp/> 이름</td>
-                  <td >강노율</td>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaCalendar/> 생년월일</td>
-                  <td>09.12.06</td>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaUserGroup /> 소속</td>
-                  <td>신성고등학교 프론</td>
-                </tr>
-                <tr>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><IoCall/> 연락처</td>
-                  <td>010-8100-0004</td>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><MdEmail/> 이메일</td>
-                  <td>yuntanx495@gmail.com</td>
-                  <td style={{fontWeight: 'bolder', fontSize: '20px'}}><FaTrophy/> 입상</td>
-                  <td>2023학년도 정보올림피아드 장려상</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        </div>
+        <br/><br/>
+        <h1 ref={introRef} style={{fontWeight:'bolder'}}>About Me</h1>
+        <div className='intro'>
+          <div className='intro-info'><IoPersonSharp/> <span className='label'>이름</span> <span className='value'>강노율</span></div>
+          <div className='intro-info'><FaCalendar/> <span className='label'>생년월일</span> <span className='value'>09.12.06</span></div>
+          <div className='intro-info'><FaUserGroup/> <span className='label'>소속</span> <span className='value'>신성고등학교 프론</span></div>
+          <div className='intro-info'><IoCall/> <span className='label'>연락처</span> <span className='value'>010-8100-0004</span></div>
+          <div className='intro-info'><MdEmail/> <span className='label'>이메일</span> <span className='value'>yuntanx495@gmail.com</span></div>
+          <div className='intro-info'><FaTrophy/> <span className='label'>입상</span> <span className='value'>2023학년도<br/>정보올림피아드<br/>장려상</span></div>
         </div>
         <div className='projects'>
-          <h2 style={{fontWeight:"bolder"}}>프로젝트</h2>
+          <br/>
+          <h2 style={{fontWeight:'bolder'}}>프로젝트</h2>
           <table className='projects-table'>
             <tbody>
               <tr>
