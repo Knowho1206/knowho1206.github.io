@@ -118,6 +118,11 @@ body {
   table-layout: fixed;
 }
 
+.projects-content {
+  color: inherit;
+  text-decoration: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
