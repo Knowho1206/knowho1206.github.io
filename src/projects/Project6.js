@@ -170,7 +170,7 @@ def getDormitory(img):
 		    dom = "Revenclaw"
 		    info = "마법보단 공부에 소질이 있습니다"`;
 
-function Project1() {
+function Project6() {
     const [showCode1, setShowCode1] = useState(false);
     const [showCode2, setShowCode2] = useState(false);
     const [showCode3, setShowCode3] = useState(false);
@@ -213,4 +213,4 @@ function Project1() {
     );
 }
 
-export default Project1;
+export default Project6;

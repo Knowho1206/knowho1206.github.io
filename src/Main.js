@@ -78,7 +78,7 @@ function Cards({url=noimg, title, text, num}) {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{text}</p>
-                <a href={`/projects/${num}`} className="btn btn-primary">보러가기</a>
+                <a href={`/#/projects/${num}`} className="btn btn-primary">보러가기</a>
             </div>
         </div>
     )
