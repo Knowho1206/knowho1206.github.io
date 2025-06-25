@@ -3,7 +3,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import './Project1.css';
+import './Project6.css';
+import dormitory from '../assets/dormitory.png';
+import Image from 'react-bootstrap/Image';
 
 const code1 = `#AI 모델 생성
 from tensorflow.keras.models import Sequential
@@ -173,27 +175,40 @@ function Project1() {
     const [showCode2, setShowCode2] = useState(false);
     const [showCode3, setShowCode3] = useState(false);
     return (
-        <div style={{backgroundColor:'#222222'}}>
-            <h1 className='text'>해리포터 기숙사 배정 프로그램</h1>
-            <h2 ></h2>
-            <button class="btn btn-secondary" onClick={() => setShowCode1(!showCode1)}>{showCode1 ? "코드1 숨기기" : "코드1 보기"}</button>
-            <button class="btn btn-secondary code" onClick={() => setShowCode2(!showCode2)}>{showCode2 ? "코드2 숨기기" : "코드2 보기"}</button>
-            <button class="btn btn-secondary code" onClick={() => setShowCode3(!showCode3)}>{showCode3 ? "코드3 숨기기" : "코드3 보기"}</button>
-            {showCode1 && (
-            <SyntaxHighlighter language="python" style={vscDarkPlus}>
-            {code1}
-            </SyntaxHighlighter>
-            )}
-            {showCode2 && (
-            <SyntaxHighlighter language="python" style={vscDarkPlus}>
-            {code2}
-            </SyntaxHighlighter>
-            )}
-            {showCode3 && (
-            <SyntaxHighlighter language="python" style={vscDarkPlus}>
-            {code3}
-            </SyntaxHighlighter>
-            )}
+        <div className="container">
+            <div className="left-pane">
+                <h1 className='text'>해리포터 기숙사 배정 프로그램</h1>
+                <h2 style={{color: 'white'}}>2023.4~2023.5</h2>
+                <Image src={dormitory} fluid/>
+                <br/>
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off"/>
+                    <label class="btn btn-outline-secondary" for="btncheck1" onClick={() => setShowCode1(!showCode1)}>{showCode1 ? "코드1 숨기기" : "코드1 보기"}</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off"/>
+                    <label class="btn btn-outline-secondary" for="btncheck2" onClick={() => setShowCode2(!showCode2)}>{showCode2 ? "코드2 숨기기" : "코드2 보기"}</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off"/>
+                    <label class="btn btn-outline-secondary" for="btncheck3" onClick={() => setShowCode3(!showCode3)}>{showCode3 ? "코드3 숨기기" : "코드3 보기"}</label>
+                </div>
+            </div>
+            <div className="right-pane">
+                {showCode1 && (
+                <SyntaxHighlighter language="python" style={vscDarkPlus}>
+                {code1}
+                </SyntaxHighlighter>
+                )}
+                {showCode2 && (
+                <SyntaxHighlighter language="python" style={vscDarkPlus}>
+                {code2}
+                </SyntaxHighlighter>
+                )}
+                {showCode3 && (
+                <SyntaxHighlighter language="python" style={vscDarkPlus}>
+                {code3}
+                </SyntaxHighlighter>
+                )}
+            </div>
         </div>
     );
 }

@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
 import background from './assets/background.png';
-import dormitory from './assets/dormitory.png';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -15,22 +14,30 @@ import { FaCalendar } from 'react-icons/fa';
 import { IoPersonSharp, IoCall } from 'react-icons/io5';
 import { FaUserGroup, FaTrophy } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import dormitory from './assets/dormitory.png';
+import ue5 from './assets/ue5.png';
+import mc from './assets/minecraft.png';
+import shinsungin from './assets/shinsungin.png';
+import crawling from './assets/crawling.png';
+import mbti from './assets/mbti.png';
+import translator from './assets/translator.png';
+import noimg from './assets/noImage.jpg';
+
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-<a
-    href='d-inline mx-2bg-body-tertiary mb-3'
-    ref={ref}
-    onClick={(e) => {
-    e.preventDefault();
-    onClick(e);
-    }}
-    className='nav-link'
-    style={{ cursor: 'pointer' }}
->
-    {children}
-    &#x25bc;
-</a>
+    <a
+        href='d-inline mx-2bg-body-tertiary mb-3'
+        ref={ref}
+        onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+        }}
+        className='nav-link'
+        style={{ cursor: 'pointer' }}
+    >
+        {children}
+        &#x25bc;
+    </a>
 ));
 
 function Main() {
@@ -63,12 +70,25 @@ const CustomMenu = React.forwardRef(
     );
     },
 );
+
+function Cards({url=noimg, title, text, num}) {
+    return(
+        <div className="card projects-table">
+            <img src={url} className="card-img-top image" alt="thumbnail" layout="fill" objectFit="cover"/>
+            <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <p className="card-text">{text}</p>
+                <a href={`/projects/${num}`} className="btn btn-primary">보러가기</a>
+            </div>
+        </div>
+    )
+}
 return (
     <div className='App'>
     {['lg'].map((expand) => (
         <Navbar key={expand} expand={expand} className='bg-body-tertiary mb-3 fixed-top'>
         <Container fluid>
-            <Navbar.Brand>Knowho's Portpolio</Navbar.Brand>
+            <Navbar.Brand>Knowho's Portfolio</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${expand}`}
@@ -88,10 +108,12 @@ return (
                         프로젝트
                     </Dropdown.Toggle>
                     <Dropdown.Menu as={CustomMenu}>
-                        <Dropdown.Item eventKey='1' href='/projects/1'>파이썬 웹사이트 크롤링</Dropdown.Item>
-                        <Dropdown.Item eventKey='2'>Blue</Dropdown.Item>
-                        <Dropdown.Item eventKey='3'>Orange</Dropdown.Item>
-                        <Dropdown.Item eventKey='4'>Red-Orange</Dropdown.Item>
+                        <Dropdown.Item eventKey='1' href='/projects/1'>해리포터 기숙사 배정 프로그램</Dropdown.Item>
+                        <Dropdown.Item eventKey='2' href='/projects/2'>MBTI 챗봇</Dropdown.Item>
+                        <Dropdown.Item eventKey='3' href='/projects/3'>파이썬 웹사이트 크롤링</Dropdown.Item>
+                        <Dropdown.Item eventKey='4' href='/projects/4'>파이썬 번역기</Dropdown.Item>
+                        <Dropdown.Item eventKey='5' href='/projects/5'>AI에 적합한 요소 예측</Dropdown.Item>
+                        <Dropdown.Item eventKey='6' href='/projects/6'>인공지능 스피커</Dropdown.Item>
                     </Dropdown.Menu>
                     </Dropdown>
                 <Nav.Link>학습 현황</Nav.Link>
@@ -123,33 +145,79 @@ return (
         <br/><br/>
         <h1 ref={introRef} style={{fontWeight:'bolder'}}>About Me</h1>
         <div className='intro'>
-        <div className='intro-info'><IoPersonSharp/> <span className='label'>이름</span> <span className='value'>강노율</span></div>
-        <div className='intro-info'><FaCalendar/> <span className='label'>생년월일</span> <span className='value'>09.12.06</span></div>
-        <div className='intro-info'><FaUserGroup/> <span className='label'>소속</span> <span className='value'>신성고등학교 프론</span></div>
-        <div className='intro-info'><IoCall/> <span className='label'>연락처</span> <span className='value'>010-8100-0004</span></div>
-        <div className='intro-info'><MdEmail/> <span className='label'>이메일</span> <span className='value'>yuntanx495@gmail.com</span></div>
-        <div className='intro-info'><FaTrophy/> <span className='label'>입상</span> <span className='value'>2023학년도<br/>정보올림피아드<br/>장려상</span></div>
+            <div className='intro-info'><IoPersonSharp/> <span className='label'>이름</span> <span className='value'>강노율</span></div>
+            <div className='intro-info'><FaCalendar/> <span className='label'>생년월일</span> <span className='value'>09.12.06</span></div>
+            <div className='intro-info'><FaUserGroup/> <span className='label'>소속</span> <span className='value'>신성고등학교 프론</span></div>
+            <div className='intro-info'><IoCall/> <span className='label'>연락처</span> <span className='value'>010-8100-0004</span></div>
+            <div className='intro-info'><MdEmail/> <span className='label'>이메일</span> <span className='value'>yuntanx495@gmail.com</span></div>
+            <div className='intro-info'><FaTrophy/> <span className='label'>입상</span> <span className='value'>2023학년도<br/>정보올림피아드<br/>장려상</span></div>
         </div>
+        <h2 style={{fontWeight:'bolder', backgroundColor: '#DDDDDD', marginBottom: 0, paddingTop:'35px'}}>프로젝트</h2>
         <div className='projects'>
-        <br/>
-        <h2 style={{fontWeight:'bolder'}}>프로젝트</h2>
-        <table className='projects-table'>
-            <tbody>
-            <tr>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/1' className='projects-content'>해리포터 기숙사 배정 프로그램<Image src={dormitory} fluid/></Link></td>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/2' className='projects-content'>MBTI 챗봇</Link></td>
-            </tr>
-            <tr>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/3' className='projects-content'>파이썬 웹사이트 크롤링</Link></td>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/4' className='projects-content'>파이썬 번역기</Link></td>
-            </tr>
-            <tr>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/5' className='projects-content'>AI에 적합한 요소 예측</Link></td>
-                <td className='rounded shadow p-3 bg-white'><Link to='/projects/6' className='projects-content'>인공지능 스피커</Link></td>
-            </tr>
-            </tbody>
-        </table>
-        <br/>
+            <span className='project-table'>
+                <Cards
+                title="인공지능 스피커" 
+                text="사람의 얼굴을 AI가 분석해서 기숙사를 배정해주는 웹사이트"
+                num={1}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards
+                title="AI에 적합한 요소 예측" 
+                text="사람의 얼굴을 AI가 분석해서 기숙사를 배정해주는 웹사이트"
+                num={2}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={translator} 
+                title="번역기" 
+                text="파이썬의 tkinter와 구글 번역기 라이브러리를 이용하여 만든 간의 번역기"
+                num={3}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={crawling} 
+                title="웹 크롤링" 
+                text="웹 사이트에 있는 정보를 가져오는 프로그램"
+                num={4}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={mbti} 
+                title="MBTI 챗봇" 
+                text="AI가 질문하는 것에 대해 대답하면 사용자의 MBTI를 추론해주는 웹사이트"
+                num={5}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={dormitory} 
+                title="해리포터 기숙사 배정 프로그램" 
+                text="사람의 얼굴을 AI가 분석해서 기숙사를 배정해주는 웹사이트"
+                num={6}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={shinsungin}
+                title="신성인 애플리케이션 개발" 
+                text="학사 일정, 급식 메뉴, 커뮤니티 등의 기능을 탑제할 앱 [개발중]"
+                num={7}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={ue5}
+                title="Unreal Engine 5 개발" 
+                text="UE5를 이용하여 영상 및 게임 제작 [개발중]"
+                num={8}
+                />
+            </span>
+            <span className='project-table'>
+                <Cards url={mc}
+                title="마인크래프트 모드 개발" 
+                text="마인크래프트 모드를 자바를 이용하여 개발 [개발중]"
+                num={9}
+                />
+            </span>
+            <br/>
         </div>
     </div>
     );

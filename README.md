@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+프로젝트 구조를 확인했습니다. 이를 반영한 README.md 파일을 작성해 드리겠습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 개인 프로그래머 포트폴리오 웹사이트
 
-## Available Scripts
+안녕하세요! 이 레포지토리는 제 프로그래밍 역량과 프로젝트들을 소개하는 포트폴리오 웹사이트입니다.
 
-In the project directory, you can run:
+## 프로젝트 소개
 
-### `npm start`
+이 웹사이트는 제 기술적 역량, 완성한 프로젝트, 그리고 프로그래밍 여정을 보여주기 위해 React를 기반으로 제작되었습니다. 방문자들이 제 작업물과 기술 스택을 직관적으로 이해할 수 있도록 구성했습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 주요 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **메인 페이지**: 자기소개, 주요 프로젝트 소개, 향후 계획 등을 담은 메인 페이지
+- **하위 페이지**: 한 사이트 안에 프로젝트의 설명을 모두 담기는 어려웠기에, 하위 페이지를 만들어 페이지의 제약 없이 자세히 설명
+- **404 페이지 효과**: 독특한 텍스트 애니메이션 효과
+- **프로젝트 갤러리**: 완성한 프로젝트들의 시각적 전시
+- **반응형 디자인**: 모든 디바이스에서 최적화된 사용자 경험
 
-### `npm test`
+## 프로젝트 개요
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+포트폴리오에 포함된 주요 프로젝트들:
+- 챗봇 프로젝트
+- 웹 크롤링 프로젝트
+- 기숙사 관리 시스템
+- MBTI 맞추기 웹사이트
+- 마인크래프트 모드 개발 프로젝트
+- 번역기 애플리케이션
+- Unreal Engine 5 프로젝트
+- 신성인 프로젝트
 
-### `npm run build`
+## 사용 기술
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **프론트엔드**: React.js, HTML5, CSS3, JavaScript
+- **버전 관리**: Git, GitHub
+- **배포**: GitHub Pages
+- **기타 도구**: npm
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 프로젝트 구조
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+C:.
+│  .gitignore          # Git 무시 파일 설정
+│  package-lock.json   # 패키지 의존성 정확한 버전 명세
+│  package.json        # 프로젝트 설정 및 의존성
+│  README.md           # 이 마크다운 파일
+│  
+├─docs                 # 프로젝트 build 및 배포한 곳
+│
+├─public               # 정적 파일 디렉토리
+│      index.html      # HTML 진입점
+│      ...
+│      
+└─src                  # 소스 코드 디렉토리
+    │  App.js          # 메인 App 컴포넌트
+    │  FallingText.js  # 텍스트 애니메이션 컴포넌트
+    │  Main.js         # 메인 페이지 컴포넌트
+    │  NotFound.js     # 404 페이지 컴포넌트
+    │  ...
+    │  
+    ├─assets           # 이미지 및 미디어 파일
+    │      background.png
+    │      chatbot.png
+    │      ...
+    │      
+    └─projects         # 프로젝트 관련 컴포넌트
+            Project6.css
+            Project6.js
+```
 
-### `npm run eject`
+## 배포 링크
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+이 포트폴리오는 [여기](https://knowho1206.github.io)에서 확인하실 수 있습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 향후 계획
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 추가 프로젝트 업데이트
+- 다양한 경험 쌓기
+- 디자인 개선
+- 다크 모드/라이트 모드 전환 기능
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 연락처
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 이메일: yuntanx495@gmail.com / 250002@shinsung.hs.kr
+- 깃허브: [GitHub 프로필 링크](https://github.com/Knowho1206)
