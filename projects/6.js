@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './Project6.css';
-import dormitory from '../assets/dormitory.png';
+import dormitory from '../public/dormitory.png';
 import Image from 'react-bootstrap/Image';
 
 const code1 = `#AI 모델 생성
@@ -170,7 +171,7 @@ def getDormitory(img):
 		    dom = "Revenclaw"
 		    info = "마법보단 공부에 소질이 있습니다"`;
 
-function Project6() {
+export default function Project6() {
     const [showCode1, setShowCode1] = useState(false);
     const [showCode2, setShowCode2] = useState(false);
     const [showCode3, setShowCode3] = useState(false);
@@ -212,5 +213,3 @@ function Project6() {
         </div>
     );
 }
-
-export default Project6;

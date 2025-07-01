@@ -1,82 +1,36 @@
-# Knowho's Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-안녕하세요! 이 레포지토리는 제 프로그래밍 역량과 프로젝트들을 소개하는 포트폴리오 웹사이트입니다.
+## Getting Started
 
-## 프로젝트 소개
+First, run the development server:
 
-이 웹사이트는 제 기술적 역량, 완성한 프로젝트, 그리고 프로그래밍 여정을 보여주기 위해 React를 기반으로 제작되었습니다. 방문자들이 제 작업물과 기술 스택을 직관적으로 이해할 수 있도록 구성했습니다.
-
-## 주요 기능
-
-- **메인 페이지**: 자기소개, 주요 프로젝트 소개, 향후 계획 등을 담은 메인 페이지
-- **하위 페이지**: 한 사이트 안에 프로젝트의 설명을 모두 담기는 어려웠기에, 하위 페이지를 만들어 페이지의 제약 없이 자세히 설명
-- **404 페이지 효과**: 독특한 텍스트 애니메이션 효과
-- **프로젝트 갤러리**: 완성한 프로젝트들의 시각적 전시
-- **반응형 디자인**: 모든 디바이스에서 최적화된 사용자 경험
-
-## 프로젝트 개요
-
-포트폴리오에 포함된 주요 프로젝트들:
-- 챗봇 프로젝트
-- 웹 크롤링 프로젝트
-- 기숙사 관리 시스템
-- MBTI 맞추기 웹사이트
-- 마인크래프트 모드 개발 프로젝트
-- 번역기 애플리케이션
-- Unreal Engine 5 프로젝트
-- 신성인 프로젝트
-
-## 사용 기술
-
-- **프론트엔드**: React.js, HTML5, CSS3, JavaScript
-- **버전 관리**: Git, GitHub
-- **배포**: GitHub Pages
-- **기타 도구**: npm
-
-## 프로젝트 구조
-
-```
-C:.
-│  .gitignore          # Git 무시 파일 설정
-│  package-lock.json   # 패키지 의존성 정확한 버전 명세
-│  package.json        # 프로젝트 설정 및 의존성
-│  README.md           # 이 마크다운 파일
-│  
-├─docs                 # 프로젝트 build 및 배포한 곳
-│
-├─public               # 정적 파일 디렉토리
-│      index.html      # HTML 진입점
-│      ...
-│      
-└─src                  # 소스 코드 디렉토리
-    │  App.js          # 메인 App 컴포넌트
-    │  FallingText.js  # 텍스트 애니메이션 컴포넌트
-    │  Main.js         # 메인 페이지 컴포넌트
-    │  NotFound.js     # 404 페이지 컴포넌트
-    │  ...
-    │  
-    ├─assets           # 이미지 및 미디어 파일
-    │      background.png
-    │      chatbot.png
-    │      ...
-    │      
-    └─projects         # 프로젝트 관련 컴포넌트
-            Project6.css
-            Project6.js
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## 배포 링크
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-이 포트폴리오는 [여기](https://knowho1206.github.io/#/)에서 확인하실 수 있습니다.
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-## 향후 계획
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- 추가 프로젝트 업데이트
-- 다양한 경험 쌓기
-- 디자인 개선
-- 다크 모드/라이트 모드 전환 기능
+## Learn More
 
-## 연락처
+To learn more about Next.js, take a look at the following resources:
 
-- 이메일: yuntanx495@gmail.com / 250002@shinsung.hs.kr
-- 깃허브: [GitHub 프로필 링크](https://github.com/Knowho1206)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
