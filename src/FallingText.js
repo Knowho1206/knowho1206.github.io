@@ -16,18 +16,18 @@ const FallingText = ({
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const canvasContainerRef = useRef(null);
-
   const [effectStarted, setEffectStarted] = useState(false);
 
   useEffect(() => {
     if (!textRef.current) return;
-    const words = text.split(" ");
-    const newHTML = words
-      .map((word) => {
-        const isHighlighted = highlightWords.some((hw) => word.startsWith(hw));
-        return `<span class="word ${isHighlighted ? highlightClass : ""}">${word}</span>`;
-      })
-      .join(" ");
+    const lines = text.split("\n");
+    const newHTML = lines.map(line => {
+      const words = line.split(" ");
+      return words.map(word => {
+        const isHighlighted = highlightWords.some(hw => word.startsWith(hw));
+        return `<span class="word ${isHighlighted ? 'highlighted' : ''}">${word}</span>`;
+      }).join(" ");
+    }).join("<br>");
     textRef.current.innerHTML = newHTML;
   }, [text, highlightWords, highlightClass]);
 
@@ -53,7 +53,6 @@ const FallingText = ({
 
   useEffect(() => {
     if (!effectStarted) return;
-
     const {
       Engine,
       Render,
@@ -63,7 +62,6 @@ const FallingText = ({
       Mouse,
       MouseConstraint,
     } = Matter;
-
     const containerRect = containerRef.current.getBoundingClientRect();
     const width = containerRect.width;
     const height = containerRect.height;
@@ -74,7 +72,6 @@ const FallingText = ({
 
     const engine = Engine.create();
     engine.world.gravity.y = gravity;
-
     const render = Render.create({
       element: canvasContainerRef.current,
       engine,
@@ -95,12 +92,11 @@ const FallingText = ({
     const rightWall = Bodies.rectangle(width + 25, height / 2, 50, height, boundaryOptions);
     const ceiling = Bodies.rectangle(width / 2, -25, width, 50, boundaryOptions);
 
-    const wordSpans = textRef.current.querySelectorAll(".word");
-    const wordBodies = [...wordSpans].map((elem) => {
-      const rect = elem.getBoundingClientRect();
-
+    const lines = textRef.current.querySelectorAll(".word");
+    const wordBodies = [...lines].map((lineElem) => {
+      const rect = lineElem.getBoundingClientRect();
       const x = rect.left - containerRect.left + rect.width / 2;
-      const y = rect.top - containerRect.top + rect.height / 2;
+      const y = rect.top - containerRect.top + rect.height;
 
       const body = Bodies.rectangle(x, y, rect.width, rect.height, {
         render: { fillStyle: "transparent" },
@@ -113,8 +109,9 @@ const FallingText = ({
         x: (Math.random() - 0.5) * 5,
         y: 0
       });
+
       Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05);
-      return { elem, body };
+      return { elem: lineElem, body };
     });
 
     wordBodies.forEach(({ elem, body }) => {
@@ -132,8 +129,8 @@ const FallingText = ({
         render: { visible: false },
       },
     });
-    render.mouse = mouse;
 
+    render.mouse = mouse;
     World.add(engine.world, [
       floor,
       leftWall,

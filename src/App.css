@@ -1,10 +1,12 @@
 .App {
   text-align: center;
 }
+
 body {
   overflow-x: hidden;
   font-family: 'Pretendard-Regular', sans-serif;
 }
+
 @font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -24,7 +26,7 @@ body {
   gap: 16px;
 }
 
-.intro-info{
+.intro-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +43,10 @@ body {
   font-size: 25px;
   font-weight: bolder;
 }
-.value { margin-top: 4px; }
+
+.value {
+  margin-top: 4px;
+}
 
 @media (max-width: 800px) {
   .intro {
@@ -54,6 +59,7 @@ body {
   right: 0;
   transform: translateX(-60px);
 }
+
 .background {
   position: relative;
   display: inline-block;
@@ -75,6 +81,7 @@ body {
   z-index: 2;
   min-width: 550px;
 }
+
 .overlay-divider {
   width: 200px;
   border-top-width: 15px;
@@ -106,7 +113,7 @@ body {
 .image {
   border-radius: 10px;
   object-fit: cover;
-  width: 480px;
+  width: 90%;
   height: 180px;
   object-position: center;
   align-self: center;
@@ -131,13 +138,22 @@ body {
   }
 }
 
+@media (max-width: 1200px) {
+  .projects {
+    grid-template-columns: 2fr;
+    grid-template-rows: repeat(5, 2fr);
+  }
+}
+
 .projects-table {
   border-spacing: 50px 25px;
   border-collapse: separate;
-  width: 500px;
+  width: 90%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   table-layout: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .projects-content {
@@ -148,12 +164,6 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -175,6 +185,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

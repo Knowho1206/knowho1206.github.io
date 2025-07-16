@@ -177,39 +177,103 @@ function Project6() {
     return (
         <div className="container">
             <div className="left-pane">
-                <h1 className='text'>해리포터 기숙사 배정 프로그램</h1>
-                <h2 style={{color: 'white'}}>2023.4~2023.5</h2>
-                <Image src={dormitory} fluid/>
-                <br/>
-                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off"/>
-                    <label class="btn btn-outline-secondary" for="btncheck1" onClick={() => setShowCode1(!showCode1)}>{showCode1 ? "코드1 숨기기" : "코드1 보기"}</label>
+                <div>
+                    <div class="mac-window-controls">
+                        <div class="mac-control-button close"></div>
+                        <div class="mac-control-button minimize"></div>
+                        <div class="mac-control-button maximize"></div>
+                    </div>
+                    <Image src={dormitory} fluid className="image6" />
+                </div>
+                <br />
+                <div className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" className="btn-check" id="btncheck1" autocomplete="off" />
+                    <label className="btn btn-outline-secondary" for="btncheck1" onClick={() => setShowCode1(!showCode1)}>{showCode1 ? "코드1 숨기기" : "코드1 보기"}</label>
 
-                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off"/>
-                    <label class="btn btn-outline-secondary" for="btncheck2" onClick={() => setShowCode2(!showCode2)}>{showCode2 ? "코드2 숨기기" : "코드2 보기"}</label>
+                    <input type="checkbox" className="btn-check" id="btncheck2" autocomplete="off" />
+                    <label className="btn btn-outline-secondary" for="btncheck2" onClick={() => setShowCode2(!showCode2)}>{showCode2 ? "코드2 숨기기" : "코드2 보기"}</label>
 
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off"/>
-                    <label class="btn btn-outline-secondary" for="btncheck3" onClick={() => setShowCode3(!showCode3)}>{showCode3 ? "코드3 숨기기" : "코드3 보기"}</label>
+                    <input type="checkbox" className="btn-check" id="btncheck3" autocomplete="off" />
+                    <label className="btn btn-outline-secondary" for="btncheck3" onClick={() => setShowCode3(!showCode3)}>{showCode3 ? "코드3 숨기기" : "코드3 보기"}</label>
+                </div>
+                <div className="main">
+                    <div class="mac-window-controls">
+                        <div class="mac-control-button close"></div>
+                        <div class="mac-control-button minimize"></div>
+                        <div class="mac-control-button maximize"></div>
+                    </div>
+                    <div className="text">
+                        <h1 id="-">호그와트 기숙사 배정 프로젝트 </h1>
+                        <h6>2023.4~2023.5</h6>
+                        <br />
+                        <h2 id="-">프로젝트 개요</h2>
+                        <p>본 프로그램은 사용자의 사진을 인공지능 기술로 분석하여 호그와트 마법학교의 네 기숙사(그리핀도르, 슬리데린, 후플푸프, 래번클로) 중 하나를 배정해 드리는 프로그램입니다.</p>
+                        <h2 id="-">기술적 특징</h2>
+                        <ul>
+                            <li>고급 이미지 인식 AI 기술 활용</li>
+                            <li>사용자 얼굴 특성 및 표정 분석 알고리즘 적용</li>
+                            <li>호그와트 기숙사별 특성에 맞춘 맞춤형 배정 시스템</li>
+                        </ul>
+                        <h2 id="-">사용 방법</h2>
+                        <ol>
+                            <li>프로그램 접속 후 사용자 본인의 얼굴이 명확히 보이는 사진을 업로드합니다.</li>
+                            <li>AI 시스템이 사진을 분석하는 동안 잠시 대기합니다.</li>
+                            <li>분석 완료 후 배정된 호그와트 기숙사 결과를 확인합니다.</li>
+                            <li>필요시 결과를 저장하거나 공유할 수 있습니다.</li>
+                        </ol>
+                        <h2 id="-">프로젝트의 의의</h2>
+                        <p>이 프로젝트를 만듦으로써 AI 사용법을 익힐 수 있었고, flask, django, tensorflow, ngrok같은 파이썬 라이브러리들의 사용법을 익힐 수 있었습니다.</p>
+                        <h2 id="-">이용 안내 사항</h2>
+                        <ul>
+                            <li>본 프로그램은 엔터테인먼트 목적으로 개발되었습니다.</li>
+                            <li>업로드된 사진은 기숙사 배정 분석 외 다른 목적으로 저장되거나 활용되지 않습니다.</li>
+                            <li>프로그램 이용 시 <strong>개인정보 보호정책에 동의하신 것으로 간주됩니다.</strong></li>
+                        </ul>
+                        <h2 id="-">면책 조항</h2>
+                        <p><strong>본 프로젝트는 &#39;해리 포터&#39; 시리즈의 팬 콘텐츠로, Warner Bros. Entertainment Inc. 및 J.K. 롤링의 공식 인증을 받지 않았습니다. 관련 지적 재산권은 해당 권리자에게 있습니다.</strong></p>
+                        <br />
+                    </div>
                 </div>
             </div>
             <div className="right-pane">
                 {showCode1 && (
-                <SyntaxHighlighter language="python" style={vscDarkPlus}>
-                {code1}
-                </SyntaxHighlighter>
+                    <div className="code-container">
+                        <div className="mac-window-controls">
+                            <div className="mac-control-button close" />
+                            <div className="mac-control-button minimize" />
+                            <div className="mac-control-button maximize" />
+                        </div>
+                        <SyntaxHighlighter className="code" language="python" style={{ margin: "0", ...vscDarkPlus }}>
+                            {code1}
+                        </SyntaxHighlighter>
+                    </div>
                 )}
                 {showCode2 && (
-                <SyntaxHighlighter language="python" style={vscDarkPlus}>
-                {code2}
-                </SyntaxHighlighter>
+                    <div className="code-container">
+                        <div className="mac-window-controls">
+                            <div className="mac-control-button close" />
+                            <div className="mac-control-button minimize" />
+                            <div className="mac-control-button maximize" />
+                        </div>
+                        <SyntaxHighlighter language="python" style={vscDarkPlus} className="code">
+                            {code2}
+                        </SyntaxHighlighter>
+                    </div>
                 )}
                 {showCode3 && (
-                <SyntaxHighlighter language="python" style={vscDarkPlus}>
-                {code3}
-                </SyntaxHighlighter>
+                    <div className="code-container">
+                        <div className="mac-window-controls">
+                            <div className="mac-control-button close" />
+                            <div className="mac-control-button minimize" />
+                            <div className="mac-control-button maximize" />
+                        </div>
+                        <SyntaxHighlighter language="python" style={vscDarkPlus} className="code">
+                            {code3}
+                        </SyntaxHighlighter>
+                    </div>
                 )}
             </div>
-        </div>
+        </div >
     );
 }
 
